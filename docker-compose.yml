@@ -1,14 +1,17 @@
 services:
   consul:
     image: hashicorp/consul:latest
+    container_name: consul_backend
     ports:
       - "8500:8500"
     command: "agent -dev -client=0.0.0.0"
 
   vault:
     image: hashicorp/vault:latest
+    container_name: vault_server
     ports:
       - "8200:8200"
+    command: "server" 
     environment:
       VAULT_LOCAL_CONFIG: |
         storage "consul" {
@@ -20,6 +23,7 @@ services:
           tls_disable = 1
         }
         ui = true
+        api_addr = "http://127.0.0.1:8200"
     cap_add:
       - IPC_LOCK
     depends_on:
