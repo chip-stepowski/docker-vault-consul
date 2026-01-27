@@ -1,0 +1,26 @@
+services:
+  consul:
+    image: hashicorp/consul:latest
+    ports:
+      - "8500:8500"
+    command: "agent -dev -client=0.0.0.0"
+
+  vault:
+    image: hashicorp/vault:latest
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_LOCAL_CONFIG: |
+        storage "consul" {
+          address = "consul:8500"
+          path    = "vault/"
+        }
+        listener "tcp" {
+          address     = "0.0.0.0:8200"
+          tls_disable = 1
+        }
+        ui = true
+    cap_add:
+      - IPC_LOCK
+    depends_on:
+      - consul
