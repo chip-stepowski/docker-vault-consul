@@ -1,10 +1,14 @@
-This repo uses docker compose to setup a Vault server with a Consul backend.
+This repo uses docker compose to setup a Vault server with a Consul backend, for quick and easy testing. 
+
+<b>Note<b>: Consul is running in <code>dev</code> mode, so once the container is stopped, data will be lost.
 
 To use:
-1. Clone the repo locally.
+1. Clone the repo to your local machine.
 2. Ensure Docker is running.
 3. Run `docker-compose up`
 
 # Helpful commands
+* Check the status of Vault:
+<code>vault status<code>
 * Get all Vault KV in Consul: 
 <code>consul kv get -recurse -keys vault/ </code>
