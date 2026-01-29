@@ -13,6 +13,7 @@ services:
       - "8200:8200"
     command: "server" 
     environment:
+      VAULT_LOG_LEVEL: "debug"
       VAULT_LOCAL_CONFIG: |
         storage "consul" {
           address = "consul:8500"
