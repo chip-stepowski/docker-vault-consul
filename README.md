@@ -1,6 +1,6 @@
 This repo uses docker compose to setup a Vault server with a Consul backend, for quick and easy testing. 
 
-<b>Note<b>: Consul is running in <code>dev</code> mode, so once the container is stopped, data will be lost.
+<em>Note: Consul is running in <code>dev</code> mode, so once the container is stopped, data will be lost.</em>
 
 To use:
 1. Clone the repo to your local machine.
