@@ -9,6 +9,6 @@ To use:
 
 # Helpful commands
 * Check the status of Vault:
-<code>vault status<code>
+<code>vault status</code>
 * Get all Vault KV in Consul: 
 <code>consul kv get -recurse -keys vault/ </code>
